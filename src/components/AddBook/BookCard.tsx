@@ -10,16 +10,24 @@ export default function BookCard({book} :  {book : GoogleBook}) {
 
     const [isButtonsShown, setIsButtonsShown] = useState<boolean>(false)
 
-    const show = () => setIsButtonsShown(true)
+    function show(view : 'mobile' | 'desktop') {
+        if( view === 'desktop' && window.innerWidth > 768) setIsButtonsShown(true) 
+        if( view === 'mobile'  && window.innerWidth <= 768 ) setIsButtonsShown(true) 
+    }
 
-    const hide = (e: SyntheticEvent) => { setIsButtonsShown(false); e.preventDefault() }
+    function hide(view : 'mobile' | 'desktop') {
+        if( view === 'desktop' && window.innerWidth > 768) setIsButtonsShown(false) 
+        if( view === 'mobile'  && window.innerWidth <= 768 ) setIsButtonsShown(false)     
+    } 
+    
+
+
 
     return (
         <div
             className='relative z-10 rounded-lg flex gap-4 h-min drop-shadow-md shadow-primary-400'
-            onMouseEnter={ show }
-            onMouseLeave={ hide }
-            onTouchStart={ show }
+            onMouseEnter={ () => show('desktop') }
+            onMouseLeave={ () => hide('desktop') }
         >
             <img src={imageLinks?.thumbnail || imageLinks?.smallThumbnail} className='w-[75px] h-[110px] object-cover' />
 
@@ -29,7 +37,11 @@ export default function BookCard({book} :  {book : GoogleBook}) {
                     <p>{formatAuthors(authors)}</p>
                 </div>
 
-                <Button variant="ghost" className="text-primary-300 border-primary-100 text-sm py-[4px] px-[10px]">
+                <Button 
+                    variant="ghost" 
+                    className="text-primary-300 border-primary-100 text-sm py-[4px] px-[10px] md:hidden"
+                    onTouchEnd={ () => show('mobile') }
+                >
                     <Icon icon="library_add" />
                     Add
                 </Button>
@@ -38,7 +50,7 @@ export default function BookCard({book} :  {book : GoogleBook}) {
             {isButtonsShown && 
                 <>
                     <button 
-                        onTouchEnd={ hide }
+                        onTouchEnd={ () => hide('mobile') }
                         className="pr-2 pt-2 self-end absolute top-1 right-1 z-50 md:hidden"
                     >
                         <Icon icon="close" />
