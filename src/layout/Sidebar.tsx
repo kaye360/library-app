@@ -4,6 +4,7 @@ import Button from '../components/forms/Button'
 import { useAuth } from '../hooks/useAuth'
 import { signOut } from '../services/auth'
 import SidebarLink from './SidebarLink'
+import Avatar from '../components/Avatar'
 
 export default function Sidebar() {
 
@@ -31,7 +32,9 @@ export default function Sidebar() {
 
                 <div>
                     <div className="flex items-center gap-2 font-semibold md:mb-4">
-                        <img src={auth?.user?.user_metadata.avatar_url} className="rounded-full w-12 h-12"/>
+
+                        <Avatar />
+
                         <span className='hidden md:inline'>
                             { auth?.user?.email?.split('@')[0] }
                         </span>
