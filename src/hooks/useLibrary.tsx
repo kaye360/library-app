@@ -22,6 +22,7 @@ export default function useLibrary(filter : 'library' | 'wishlist' | 'all') {
         ( async function getLibrary() {
             if(! auth?.user?.id) return
             const library = await getAllUserBooks({userId : auth?.user?.id, filter})
+            library.library.reverse()
             setLibrary(library)
         })()
     }, [])

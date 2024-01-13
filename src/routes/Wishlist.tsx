@@ -14,7 +14,6 @@ export default function Wishlist() {
                 <H1>Wishlist</H1>
 
                 <BookGrid library={wishlist?.library} />
-            
 
             </section>
 
