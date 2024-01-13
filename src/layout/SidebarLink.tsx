@@ -18,8 +18,8 @@ export default function SidebarLink({
 
     return (
         <li className={isActionButton ? `
-            fixed md:relative bottom-20 md:bottom-auto right-2 md:right-auto 
-            w-16 h-16 md:w-auto md:h-auto grid place-content-center md:block
+            fixed md:relative bottom-24 md:bottom-auto right-6 md:right-auto 
+            w-20 h-20 md:w-auto md:h-auto grid place-content-center md:block
             bg-primary-700 md:bg-transparent 
             rounded-full border border-primary-100 md:border-none 
             text-primary-200 md:text-primary-900 
@@ -28,8 +28,10 @@ export default function SidebarLink({
             <Link 
                 to={to} 
                 className={`
-                    relative flex items-center flex-col md:flex-row gap-1 ${isActive && !isActionButton ? 'text-secondary-600' : ''}
-                    after:absolute after:bottom-0 after:left-0 after:h-3 after:bg-secondary-100 after:-z-10 after:w-0 hover:after:w-full after:transition-all after:duration-300 after:ease-easeOutQuart
+                    relative flex items-center flex-col md:flex-row gap-1 
+                    ${isActive && !isActionButton ? 'text-secondary-600' : ''}
+                    ${isActive && isActionButton ? 'md:text-secondary-600' : ''}
+                    after:absolute after:bottom-0 after:left-0 after:h-3 after:bg-secondary-150 after:-z-10 after:w-0 hover:after:w-full after:transition-all after:duration-200 after:ease-easeOutQuart
                 `}
             >
                 <Icon icon={icon} className={isActionButton ? 'scale-125 md:scale-100' : ''} />
