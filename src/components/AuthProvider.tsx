@@ -1,6 +1,6 @@
 import { Session, User } from "@supabase/supabase-js"
 import { useState, useEffect } from "react"
-import { supabase } from "../lib/auth"
+import { supabase } from "../services/auth"
 import { authContext } from "../hooks/useAuth"
 
 

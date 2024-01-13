@@ -24,22 +24,6 @@ export default function useGoogleBooksSearch() {
             setBookResults('error')
         }
 
-
-        // const bookData = data.items[0].volumeInfo
-
-        // const book : Omit<Book, 'id'> = {
-        //     userId: 'user123',
-        //     title: bookData.title,
-        //     subtitle: bookData.subtitle,
-        //     author : formatAuthors(bookData.authors),
-        //     description: bookData.description,
-        //     category: formatCategories(bookData.categories),
-        //     pages: bookData.pageCount,
-        //     isRead: false,
-        //     comments: [],
-        //     thumbnail : bookData.imageLinks.thumbnail || bookData.imageLinks.smallThumbnail || null
-        // }
-
     }
 
     return {

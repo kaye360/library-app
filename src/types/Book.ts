@@ -14,5 +14,6 @@ export interface Book {
     isRead : boolean,
     comments : Comment[],
     thumbnail : string | null,
-    isOwned : boolean
+    isOwned : boolean,
+    googleBookId : string
 }

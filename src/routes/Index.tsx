@@ -1,29 +1,38 @@
-import { signIn } from "../lib/auth";
-import { useAuth } from "../hooks/useAuth";
 import HomeLayout from "../layout/HomeLayout";
+import H1 from "../components/H1";
 
 
 export default function Index() {
 
-    const auth = useAuth()
 
     return (
         <HomeLayout>
 
-            <h1>Home</h1>
+            <section 
+                id="welcome"
+                className="grid gap-6 max-w-2xl mx-auto"
+            >
 
-            { auth?.session ? (
-                <p>
-                    Welcome back, {auth.user?.email}
-                </p>
-            ) : (
-                <button
-                    onClick={ signIn }
-                    className='block w-full max-w-56 px-6 py-3 border border-red-300 hover:bg-red-400'
-                >
-                    Sign In
-                </button>
-            )}
+                <H1>Home</H1>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem at tempore consectetur provident saepe ullam quod assumenda consequuntur, cumque vel atque nihil repellat ipsa et necessitatibus? Deleniti eos qui reiciendis?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem at tempore consectetur provident saepe ullam quod assumenda consequuntur, cumque vel atque nihil repellat ipsa et necessitatibus? Deleniti eos qui reiciendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, delectus.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem at tempore consectetur provident saepe ullam quod assumenda consequuntur, cumque vel atque nihil repellat ipsa et necessitatibus? Deleniti eos qui reiciendis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum unde earum repudiandae odit veritatis debitis ut cumque necessitatibus ducimus rerum.</p>
+
+            </section>
+
+            <section 
+                id="about"
+                className="grid gap-6 max-w-2xl mx-auto mt-16"
+            >
+
+                <H1>Home</H1>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem at tempore consectetur provident saepe ullam quod assumenda consequuntur, cumque vel atque nihil repellat ipsa et necessitatibus? Deleniti eos qui reiciendis?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem at tempore consectetur provident saepe ullam quod assumenda consequuntur, cumque vel atque nihil repellat ipsa et necessitatibus? Deleniti eos qui reiciendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, delectus.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem at tempore consectetur provident saepe ullam quod assumenda consequuntur, cumque vel atque nihil repellat ipsa et necessitatibus? Deleniti eos qui reiciendis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum unde earum repudiandae odit veritatis debitis ut cumque necessitatibus ducimus rerum.</p>
+
+            </section>
 
         </HomeLayout>
     )

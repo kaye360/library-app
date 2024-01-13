@@ -11,7 +11,14 @@ export const supabase = createClient(
 
 
 export async function signIn() {
-    await supabase.auth.signInWithOAuth({provider : 'google'})
+    await supabase.auth.signInWithOAuth({
+        provider : 'google',
+        options : {
+            redirectTo : import.meta.env.DEV 
+                ? 'http://localhost:5173/dashboard' 
+                : 'https://josh-library-app.netlify.app/dashboard'
+        }
+    })
 }
 
 

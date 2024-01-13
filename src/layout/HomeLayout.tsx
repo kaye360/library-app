@@ -2,10 +2,14 @@ import { useAuth } from "../hooks/useAuth";
 import Nav from "./Nav";
 import HeroImg from '../assets/hero-sky-books.png'
 import ButtonLink from "../components/ButtonLink";
+import Button from "../components/forms/Button";
+import { signIn } from "../services/auth";
 
-export default function MainLayout({children} : {children : any}) {
+export default function HomeLayout({children} : {children : any}) {
 
     const auth = useAuth()
+    const scrollDown = () => window.scrollTo({top : 500, behavior: "smooth"})
+    
 
     return (
         <div className={`mx-auto min-h-screen`}>
@@ -20,8 +24,8 @@ export default function MainLayout({children} : {children : any}) {
                 <div className="relative z-20 text-primary-900 text-center mt-[20vh] max-w-[60ch] mx-auto grid gap-4">
  
                     { auth?.user ? (
-                        <div className="grid gap-8 bg-primary-100 p-12 rounded-2xl mx-3">
-                            <div className="text-3xl font-medium">
+                        <HeroContent>
+                            <div className="text-3xl font-theme font-bold">
                                 Welcome back, {auth.user.email?.split('@')[0]}
                             </div>
                             <div className="">
@@ -32,24 +36,30 @@ export default function MainLayout({children} : {children : any}) {
                                     Continue to Dashboard
                                 </ButtonLink>
                             </div>
-                        </div>
+                        </HeroContent>
                     ) : (
-                        <>
-                            <h1 className="text-5xl font-bold">
-                                Organize your library
+                        <HeroContent>
+                            <h1 className="text-5xl font-bold font-theme">
+                                Keep your library organized
                             </h1>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam similique vero consequuntur fugiat ipsum ut, autem non accusantium recusandae facere.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam similique vero consequuntur. 
                             </p>
-                            <div>
-                                <button>
+                            <div className="flex items-center justify-center gap-2">
+                                <Button
+                                    onClick={signIn}
+                                    variant="filled"
+                                >
                                     Sign Up/In
-                                </button>
-                                <button>
+                                </Button>
+                                <Button
+                                    onClick={scrollDown}
+                                    variant="ghost"
+                                >
                                     Learn More
-                                </button>
+                                </Button>
                             </div>
-                        </>
+                        </HeroContent>
                     )}
                 </div>
 
@@ -61,6 +71,17 @@ export default function MainLayout({children} : {children : any}) {
 
             </main>
 
+        </div>
+    )
+}
+
+
+
+function HeroContent({children} : {children : any}) {
+
+    return (
+        <div className="grid gap-6 bg-primary-100 p-8 rounded-2xl mx-3">
+            {children}
         </div>
     )
 }

@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import Button from '../components/forms/Button'
+import Logo from './Logo'
 
 export default function Nav({ variant = 'dark' }: { variant?: 'light' | 'dark' }) {
 
 	return (
 		<nav className={`flex items-center justify-between col-span-2 w-full p-4 relative z-20 max-w-7xl mx-auto ${variant === 'dark' ? 'text-primary-800' : 'text-primary-50'}`}>
 
-			<div className='flex items-center gap-1 font-theme text-2xl pointer-events-none select-none min-w-max'>
-				<Icon icon='book' />
-				<span>Library App</span>
-			</div>
+			<Logo />
 
 			<ul className="hidden md:flex items-center gap-4 text-lg font-medium">
 				<li><Link to='/'>Home</Link></li>
