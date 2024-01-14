@@ -1,7 +1,6 @@
 import H1 from "../components/H1";
 import MainLayout from "../layout/MainLayout";
 import useLibrary from "../hooks/useLibrary";
-import BookGrid from "../components/Library/BookGrid";
 
 export default function Library() {
 
