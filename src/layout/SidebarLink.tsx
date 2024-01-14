@@ -18,8 +18,8 @@ export default function SidebarLink({
 
     return (
         <li className={isActionButton ? `
-            grid place-items-center
-            scale rounded-full w-20 h-20 bg-gradient-to-br from-primary-500 to-secondary-500 text-primary-100
+            grid place-items-center rounded-full w-16 h-16 
+            bg-gradient-to-br from-primary-500 to-primary-600 text-primary-100
             shadow-md md:shadow-none shadow-primary-300 
         ` : ''}>
             <Link 
@@ -30,8 +30,8 @@ export default function SidebarLink({
                     after:absolute after:bottom-0 after:left-0 after:h-3 after:bg-secondary-150 after:-z-10 after:w-0 hover:after:w-full after:transition-all after:duration-200 after:ease-easeOutQuart
                 `}
             >
-                <Icon icon={icon} className={ isActionButton ? 'scale-125 translate-y-1' : ''} />
-                <span className={`hidden xs:inline ${isActionButton ? 'text-lg' : ''}`}>
+                <Icon icon={icon} className={ isActionButton ? 'scale-105 translate-y-1' : ''} />
+                <span className={`hidden xs:inline ${isActionButton ? 'text-lg -translate-y-1' : ''}`}>
                     {children}
                 </span>
             </Link>
