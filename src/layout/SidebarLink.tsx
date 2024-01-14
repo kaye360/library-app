@@ -19,7 +19,7 @@ export default function SidebarLink({
     return (
         <li className={isActionButton ? `
             grid place-items-center
-            scale rounded-full w-20 h-20 bg-primary-600 text-primary-100
+            scale rounded-full w-20 h-20 bg-gradient-to-br from-primary-500 to-secondary-500 text-primary-100
             shadow-md md:shadow-none shadow-primary-300 
         ` : ''}>
             <Link 
