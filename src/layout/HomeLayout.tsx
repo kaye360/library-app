@@ -1,6 +1,5 @@
 import { useAuth } from "../hooks/useAuth";
 import Nav from "./Nav";
-import HeroImg from '../assets/hero-sky-books.png'
 import ButtonLink from "../components/ButtonLink";
 import Button from "../components/forms/Button";
 import { signIn } from "../services/auth";
@@ -17,9 +16,9 @@ export default function HomeLayout({children} : {children : any}) {
 
             <div className="relative h-screen">
                 
-                <Nav variant="light" />
+                <Nav isTransparent />
 
-                <img src={HeroImg} className="absolute inset-0 z-10 w-full h-full object-cover" />
+                <img src="/assets/hero-sky-books.png" className="absolute inset-0 z-10 w-full h-full object-cover" />
 
                 <div className="relative z-20 text-primary-900 text-center mt-[20vh] max-w-[60ch] mx-auto grid gap-4">
  

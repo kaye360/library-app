@@ -10,7 +10,7 @@ export interface BaseButtonProps {
 
 export default function generateButtonBaseClasses(variant : ButtonVariant) {
 
-    let classes = 'flex items-center justify-center gap-1 px-6 py-2 border rounded-2xl font-bold tracking-wide text-lg  text-primary-900 hover:scale-105 transition-all duration-100'
+    let classes = 'flex items-center justify-center gap-1 px-6 py-2 border rounded-2xl font-bold tracking-wide text-lg  text-primary-900 hover:scale-105 transition-all duration-100 min-w-max'
 
     const shadowClass = ' shadow-primary-200 shadow-md hover:shadow-xl'
 
@@ -19,7 +19,7 @@ export default function generateButtonBaseClasses(variant : ButtonVariant) {
     }
 
     if (variant === 'ghost') {
-        classes += ' border-primary-300 hover:bg-primary-300' + shadowClass
+        classes += ' border-primary-300 hover:bg-primary-300 bg-primary-50' + shadowClass
     }
 
     if(variant === 'text') {
