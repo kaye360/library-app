@@ -5,33 +5,28 @@ interface SidebarLinkProps {
     to: string, 
     icon: string, 
     children: any
-    isActionButton? : boolean
 }
 
 
 export default function SidebarLink({
-    to, icon, isActionButton = false, children
+    to, icon, children
 } : SidebarLinkProps ) {
 
     const location = useLocation()
     const isActive = location.pathname === to || location.pathname === `${to}/`
 
     return (
-        <li className={isActionButton ? `
-            grid place-items-center rounded-full w-16 h-16 
-            bg-gradient-to-br from-primary-500 to-primary-600 text-primary-100
-            shadow-md md:shadow-none shadow-primary-300 
-        ` : ''}>
+        <li>
             <Link 
                 to={to} 
+                // ${ isActive ? 'text-secondary-600/100 ' : 'text-primary-900/70'}
                 className={`
-                    relative flex items-center flex-col md:flex-row gap-1 
-                    ${isActive && !isActionButton ? 'text-secondary-600' : ''}
-                    after:absolute after:bottom-0 after:left-0 after:h-3 after:bg-secondary-150 after:-z-10 after:w-0 hover:after:w-full after:transition-all after:duration-200 after:ease-easeOutQuart
+                    relative flex items-center flex-col md:flex-row gap-1  hover:text-primary-90/100  px-3 py-1 rounded-lg
+                    ${isActive ? 'bg-primary-200/50' : 'text-primary-900/70'}
                 `}
             >
-                <Icon icon={icon} className={ isActionButton ? 'scale-105 translate-y-1' : ''} />
-                <span className={`hidden xs:inline ${isActionButton ? 'text-lg -translate-y-1' : ''}`}>
+                <Icon icon={icon} />
+                <span className={`hidden xs:inline`}>
                     {children}
                 </span>
             </Link>
